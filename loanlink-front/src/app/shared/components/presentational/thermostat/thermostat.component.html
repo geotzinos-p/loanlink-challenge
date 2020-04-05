@@ -1,0 +1,9 @@
+<div *ngIf="thermostat" class="thermostat container">
+  <div class="thermostat__row row">
+      <div class="thermostat__left col-8 pl-3">
+        <h5>Id: {{thermostat._id}}</h5>
+        <div>Token: {{thermostat.household_token}}</div>
+        <div *ngIf="thermostat.location">Latitude: {{thermostat.location.latitude}} Longitude: {{thermostat.location.longitude}}</div>
+      </div>
+  </div>
+</div>

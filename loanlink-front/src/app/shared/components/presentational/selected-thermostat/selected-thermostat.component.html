@@ -1,0 +1,9 @@
+<div *ngIf="thermostatReading">
+  <div *ngFor="let log of thermostatReading ;trackBy: trackByF" class="attachment">
+    <h2>Thermostat id: {{log._id}}</h2>
+    <p>Temperature: {{log.temperature}}</p>
+    <p>Battery charge: {{log.battery_charge}}</p>
+    <p>Humidity: {{log.humidity}}</p>
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+<ng-container *ngIf="isContentLoaded; else loading">
+  <div class="container-fluid">
+    <div class="row ml-4 mt-2 mr-4">
+      <div [ngClass]="{'thermostats-mobile': isMobile}" class="thermostats col-md-5 ">
+        <h1 class="thermostats__title">Available thermostats</h1>
+        <div class="thermostats__line"></div>
+        <div *ngFor="let thermostat of thermostats; trackBy: trackByF" class="thermostats__row row">
+          <div (click)="selectThermostat(thermostat)">
+            <app-thermostat [thermostat]="thermostat"></app-thermostat>
+          </div>
+          <div *ngIf="isMobile && selectedThermostat && selectedThermostat._id === thermostat._id" class="row">
+            <app-selected-thermostat [thermostatReading]="selectedThermostat"></app-selected-thermostat>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="offset-md-2 col-md-5" *ngIf="!isMobile && selectedThermostatReading">
+        <app-selected-thermostat [thermostatReading]="selectedThermostatReading"></app-selected-thermostat>
+      </div>
+
+    </div>
+    <div>
+      <a *ngIf="isManager" id="create-new-thermostat" [routerLink]="['create-thermostat']" class="btn btn-link text-warning pt-0 pb-0 main-color">
+        <i class="material-icons">
+          add
+        </i>
+      </a>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <div class="thermostats container">
+    <app-loader></app-loader>
+  </div>
+</ng-template>

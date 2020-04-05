@@ -1,0 +1,47 @@
+<div id="login" class="d-flex align-items-center align-content-center justify-content-center">
+  <form class="login-form" (submit)="login()" [formGroup]="loginForm">
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+      <div class="input-group">
+        <div class="input-group-prepend align-content-center align-items-center">
+          <button id="button-addon1"
+                  type="button"
+                  class="btn btn-link text-warning pt-0 pb-0 main-color">
+            <i class="material-icons">
+              account_circle
+            </i>
+          </button>
+        </div>
+        <input type="text"
+               placeholder="Username"
+               formControlName="username"
+               autocomplete=""
+               name="username"
+               aria-describedby="button-addon1"
+               class="form-control border-0 bg-light">
+      </div>
+    </div>
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+      <div class="input-group">
+        <div class="input-group-prepend align-content-center align-items-center">
+          <button id="button-addon2"
+                  type="button"
+                  class="btn btn-link text-warning pt-0 pb-0 main-color">
+            <i class="material-icons">
+              lock
+            </i>
+          </button>
+        </div>
+        <input type="password"
+               name="password"
+               placeholder="Password"
+               formControlName="password"
+               aria-describedby="button-addon2"
+               class="form-control border-0 bg-light">
+      </div>
+    </div>
+
+    <div class="submit text-right">
+      <button type="submit" class="btn btn-block btn-primary rounded" [disabled]="loginForm.invalid">Log in</button>
+    </div>
+  </form>
+</div>

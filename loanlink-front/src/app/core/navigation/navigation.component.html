@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="changeNavStatus()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['thermostats']">Loanlink</a>
+  <div class="navbar-collapse" id="navbarNav" [ngClass]="{'collapse': collapse}">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" *ngIf="isAuthenticated">
+      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" [routerLink]="['/thermostats']">Thermostats</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" *ngIf="isAuthenticated">
+      <button type="button" class="btn btn-outline-primary my-2 my-sm-0" (click)="logout()">
+        Logout
+      </button>
+    </form>
+  </div>
+</nav>

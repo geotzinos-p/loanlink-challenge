@@ -1,0 +1,15 @@
+@import "variables";
+
+#login {
+  height: 100vh;
+
+  input {
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  i {
+    display: none;
+  }
+}
